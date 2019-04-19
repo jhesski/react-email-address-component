@@ -1,0 +1,230 @@
+
+#page-mask {
+  background: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.separator {
+  display:none;
+}
+
+.modal-new {
+  max-width:800px;
+  width:800px;
+  position:absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  z-index:1000;
+  overflow: scroll;
+}
+
+.modal-new .modal-dialog {
+  min-width:100%;
+}
+
+.report-send-row {
+  margin-bottom:5px;
+}
+
+.report-send-input {
+  min-height: 35px;
+  font-size:12px;
+}
+
+.report-send-textarea {
+  resize: none;
+  min-height:200px;
+  font-size: 13px;
+  overflow: auto;
+}
+
+.report-send-row label {
+  margin-top:5px;
+}
+
+.email-body {
+  padding:0;
+}
+
+.email-field-container {
+  border-bottom:1px solid #e9ecef;
+  padding:1rem;
+  padding-bottom: 0;
+}
+
+.body-field {
+  padding:1rem;
+}
+
+.pretty-input {
+  font-size: 12px;
+  padding: 0;
+  padding-right: 20px;
+  padding-left: 5px;
+  padding-top:5px;
+  width: 100%;
+  min-height: 35px;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  display: flex;
+  flex: 1;         /* If you remove this .container will shrink to wrap around .icon's */
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.pretty-add{
+  font-size: 18px;
+  color:#71716e;
+  float: right;
+  padding:0;
+  margin: 0;
+  left:calc(100% - 40px);
+  position: absolute;
+  top: 4px;
+  &:active{
+    left:calc(100% - 39px);
+    top:5px;
+    color: #356c54;
+  }
+}
+
+.pretty-email {
+  padding:2px 2px 2px 9px;
+  margin-right: 7px;
+  margin-top:0;
+  margin-bottom:4px;
+
+  background: #f5f5ef;
+  border: 1px solid #e2e2dc;
+  border-radius: 6px;
+  outline: none;
+  width:fit-content;
+  z-index: 90;
+
+  .pretty-email-input {
+    display: inline-block;
+    min-width: 20px;
+    padding-right:5px;
+  }
+
+  span{
+    outline: none;
+  }
+  &:focus {
+    border: 1px solid #427dc0;
+  }
+  input{
+    background: none;
+    border:none;
+    outline:none;
+    box-sizing:border-box;
+    width: fit-content;
+  }
+
+}
+
+.pretty-not-valid {
+  border-bottom: 2px dotted #dc6e78;
+}
+
+.pretty-focus {
+  box-shadow: 0 3px 14px -5px rgba(0,0,0,0.74);
+}
+
+.pretty-x {
+  padding:7px;
+  padding-left: 0;
+  margin-left:10px;
+  cursor: pointer;
+  &:active {
+    margin-left:11px;
+    margin-top:1px;
+  }
+}
+
+.pretty-drop-down {
+  min-width: 150px;
+  position: absolute;
+  left: calc(100% - 183px);
+  top: 25px;
+  z-index: 90;
+  box-shadow: 3px 3px 20px -3px rgba(0,0,0,0.34);
+  span {
+    font-size: 9pt;
+    padding: 0.15rem;
+    padding-left: 6px;
+    letter-spacing: .6pt;
+    font-weight: normal;
+    color: #fff;
+    background: #3d9bc3;
+    display: inline-flex;
+    flex: 1;
+    user-select: none;
+    width:100%;
+    border-radius: 3px 3px 0 0;
+  }
+  ul {
+    margin:0;
+    padding:0 0 6px 0;
+    background: white;
+    border: 1px solid #d0d0d0;
+    border-radius: 0 0 3px 3px;
+    border-top:none;
+    list-style: none;
+    li {
+      padding:0 6px 0 6px;
+      font-size: 10pt;
+      border-bottom: 1px solid white;
+      cursor: pointer;
+      &:hover{
+        background: #f2f2ec;
+        border-bottom: 1px solid #dc4384;
+      }
+    }
+  }
+}
+
+.no-width {
+  width: auto;
+}
+
+.pdf-download-icon {
+  font-size: 18pt;
+  color:#71716e;
+  span{
+    font-size: 9pt;
+  }
+}
+
+.modal-window{
+  box-shadow: 0 12px 6px -6px rgba(0,0,0,.25);
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 2%;
+  background: none;
+  .modal-content{
+    background: none;
+    overflow: hidden;
+  }
+}
+
+.modal-header{
+  background: #72b187;
+  padding: .5rem;
+  color: #e8f6eb;
+}
+
+.modal-body, .modal-footer {
+  background: white;
+}
