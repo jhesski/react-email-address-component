@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "dateformat": "^3.0.3",
-    "fstream": "1.0.1",
+    "fstream": "1.0.12",
     "kind-of": "6.0.3",
     "lodash": "^4.17.15",
     "mixin-deep": "1.3.2",
