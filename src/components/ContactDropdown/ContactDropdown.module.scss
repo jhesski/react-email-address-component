@@ -1,0 +1,79 @@
+.dropdown {
+  min-width: 150px;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  z-index: 90;
+  box-shadow: 3px 3px 20px -3px rgba(0, 0, 0, 0.34);
+}
+
+.header {
+  font-size: 9pt;
+  padding: 0.15rem 0.15rem 0.15rem 6px;
+  letter-spacing: 0.6pt;
+  font-weight: normal;
+  color: #fff;
+  background: #3d9bc3;
+  display: flex;
+  user-select: none;
+  width: 100%;
+  border-radius: 3px 3px 0 0;
+  box-sizing: border-box;
+}
+
+.list {
+  margin: 0;
+  padding: 0 0 6px 0;
+  background: white;
+  border: 1px solid #d0d0d0;
+  border-radius: 0 0 3px 3px;
+  border-top: none;
+  list-style: none;
+}
+
+.item {
+  padding: 0 6px;
+  font-size: 10pt;
+  border-bottom: 1px solid white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  &:hover {
+    background: #f2f2ec;
+    border-bottom: 1px solid #dc4384;
+  }
+}
+
+.disabled {
+  opacity: 0.45;
+  cursor: default;
+
+  &:hover {
+    background: none;
+    border-bottom: 1px solid white;
+  }
+}
+
+.checkIcon {
+  color: #72b187;
+  flex-shrink: 0;
+}
+
+.addNewItem {
+  padding: 0 6px;
+  font-size: 10pt;
+  border-top: 1px solid #e9ecef;
+  margin-top: 4px;
+  padding-top: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #3d9bc3;
+
+  &:hover {
+    background: #f2f2ec;
+  }
+}

@@ -1,0 +1,90 @@
+.card {
+  width: 100%;
+  background: none;
+}
+
+.content {
+  overflow: hidden;
+  border-radius: 0.3rem;
+  box-shadow: 0 12px 6px -6px rgba(0, 0, 0, 0.25);
+}
+
+.header {
+  background: #72b187;
+  padding: 0.5rem;
+  color: #e8f6eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.dismissButton {
+  background: none;
+  border: none;
+  color: #e8f6eb;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.body {
+  background: white;
+  padding: 1.25rem 1.5rem;
+}
+
+.intro {
+  margin: 0 0 1rem;
+  font-size: 14px;
+  color: #495057;
+  line-height: 1.6;
+}
+
+.featureList {
+  list-style: none;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: #495057;
+}
+
+.featureIcon {
+  color: #72b187;
+  flex-shrink: 0;
+}
+
+.techRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 0.75rem;
+  border-top: 1px solid #e9ecef;
+}
+
+.badge {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 12px;
+  background: #f0f0ec;
+  color: #555;
+  letter-spacing: 0.3px;
+}

@@ -1,68 +1,68 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React Email Composer
 
-## Available Scripts
+A fully interactive email composer component built with React 19, TypeScript, and Zustand. It focuses on a polished "To" field experience — editable pill-based email inputs with display-name parsing, real-time validation, contact management, and localStorage persistence.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **Pill-based email input** — Recipients render as inline pills that can be edited in-place, removed, or added from a contact dropdown. Each pill auto-sizes to its content and toggles between a display-name view and a raw-edit view on focus.
+- **Display-name parsing** — Supports the `Name<email@example.com>` format. The parser extracts the display name and address separately, showing the friendly name when the pill is blurred and the full raw value when editing.
+- **Real-time validation** — Email addresses are validated on every change with visual feedback (invalid addresses are styled differently). Duplicates are allowed in the To field for flexibility and silently deduplicated when the message is sent.
+- **Contact dropdown with auto-resolve** — A dropdown lists previously saved contacts. Selecting one auto-populates a pill. Typing an address that matches a known contact automatically links it, keeping IDs consistent.
+- **Edit-and-detach** — Editing a contact-linked pill detaches it from the original contact so it's treated as a new address on send, preserving the original contact unchanged.
+- **Persistent storage** — Contacts are persisted to `localStorage`. New valid addresses are saved automatically on send while preventing duplicate entries across sessions.
+- **Sent message history** — After sending, the app transitions to a session-only history view showing all messages sent during the current session (recipients, subject, timestamp) with a "Compose New Message" button to return to a fresh composer.
+- **Centralized state with Zustand** — A single store manages recipients, contacts, subject, body, sent messages, and UI flags (loading, sending, dropdown visibility). Components subscribe to only the slices they need.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Tech Stack
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+| Tool | Purpose |
+|------|---------|
+| [React 19](https://react.dev) | UI framework |
+| [TypeScript 5.9](https://www.typescriptlang.org) | Type safety |
+| [Zustand](https://zustand.docs.pmnd.rs) | Lightweight state management |
+| [Vite](https://vite.dev) | Dev server and bundler |
+| [Vitest](https://vitest.dev) + [Testing Library](https://testing-library.com) | Unit and component tests |
+| [Sass (modules)](https://sass-lang.com) | Scoped component styling |
+| [Lucide React](https://lucide.dev) | Icons |
 
-### `npm test`
+## Project Structure
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+src/
+├── components/
+│   ├── ContactDropdown/   # Saved-contact picker dropdown
+│   ├── EmailComposer/     # Top-level composer (subject, body, send)
+│   ├── EmailInput/        # To-field container with pills + add button
+│   ├── EmailPill/         # Individual editable recipient pill
+│   ├── IntroCard/         # Feature overview card shown on first load
+│   └── MessageHistory/    # Sent messages history with compose-new flow
+├── store/
+│   └── email-store.ts     # Zustand store (state + actions + localStorage)
+├── types/
+│   └── email.ts           # Shared TypeScript interfaces
+├── utils/
+│   ├── email-parser.ts    # Display-name / address extraction
+│   ├── email-validation.ts# Regex-based email validation
+│   └── index-calculator.ts# Stable index generation for recipient list
+└── test/
+    └── setup.ts           # Vitest global setup
+```
 
-### `npm run build`
+## Getting Started
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+npm install
+npm run dev        # Start the dev server
+npm run test       # Run tests in watch mode
+npm run test:run   # Run tests once
+npm run build      # Type-check and build for production
+```
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+## What This Demonstrates
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- Composing a non-trivial input component from small, focused pieces (`EmailPill`, `EmailInput`, `ContactDropdown`) rather than one monolithic component.
+- Using a view state machine (`'composer' | 'history' | 'closed'`) to manage app views without a router.
+- Parsing structured email strings (`Display Name<user@example.com>`) into typed objects and round-tripping them back for storage.
+- Silent deduplication at send time rather than disruptive input-time warnings — a deliberate UX choice that keeps the input flexible.
+- Keeping localStorage in sync with UI state through explicit read/write helpers instead of a generic sync middleware.
+- Full test coverage (111 tests) across utils, store logic, and rendered components using Vitest and Testing Library.

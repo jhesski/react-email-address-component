@@ -1,0 +1,50 @@
+.layout {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 92%;
+  max-width: 1400px;
+  margin: 2% auto 0;
+  gap: 20px;
+}
+
+.composerPane {
+  flex: 1;
+  min-width: 0;
+}
+
+.introPane {
+  width: 320px;
+  flex-shrink: 0;
+}
+
+// When intro is hidden, let the composer center itself
+.layoutSolo {
+  display: flex;
+  justify-content: center;
+  width: 92%;
+  max-width: 1400px;
+  margin: 2% auto 0;
+}
+
+.composerPaneSolo {
+  width: 80%;
+  max-width: 900px;
+}
+
+// Stack vertically when the screen is too narrow
+@media (max-width: 900px) {
+  .layout {
+    flex-direction: column;
+    width: 90%;
+    align-items: stretch;
+  }
+
+  .introPane {
+    width: 100%;
+  }
+
+  .composerPane {
+    width: 100%;
+  }
+}
